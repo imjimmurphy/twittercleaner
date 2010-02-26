@@ -1,6 +1,5 @@
 require 'json'
 require 'oauth/consumer'
-require "pp"
 
 module OauthSystem
 	class GeneralError < StandardError
