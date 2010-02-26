@@ -5,7 +5,8 @@
 # ENV['RAILS_ENV'] ||= 'production'
 
 # Specifies gem version of Rails to use when vendor/rails is not present
-RAILS_GEM_VERSION = '2.2.2' unless defined? RAILS_GEM_VERSION
+RAILS_GEM_VERSION = '2.3.4' unless defined? RAILS_GEM_VERSION
+ENV['GEM_PATH'] = '/home/wattfcom/ruby/gems:/usr/lib/ruby/gems/1.8'
 
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
@@ -85,11 +86,13 @@ Rails::Initializer.run do |config|
                      
 
 	# Twitter OAuth callback default
-  TWOAUTH_CALLBACK = "http://localhost:3000/members/callback"
+  TWOAUTH_CALLBACK = "http://twittercleaner.net/members/callback"
   # Twitter OAuth Consumer key
   TWOAUTH_KEY = "dKqsEboLY4RraQ58bo0jA"
   # Twitter OAuth Consumer secret
   TWOAUTH_SECRET = "p68vanaQstsb3JbyEKK6lFaWhMwDWYIJx9pKjKSg3SE"
+
+
 
   
 end
