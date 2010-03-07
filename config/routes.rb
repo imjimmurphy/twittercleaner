@@ -6,7 +6,7 @@ ActionController::Routing::Routes.draw do |map|
 		:member => { 
 			:update_status => :post, 
 			:partialfriends => :get,    
-			:partialunfollow_recommendation -> :get,
+			:partialunfollow_recommendation => :get,
 			:partialfollowers => :get, 
 			:partialmentions => :get , 
 			:partialdms => :get    
