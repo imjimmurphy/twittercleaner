@@ -244,6 +244,21 @@ class TwitterOauth
 		puts "Exception in friendship_show?: #{err}"
 		raise err
 	end
+	           
+  # get details for a specific user	                                           
+  def user_show(user)
+  	response = access_token.get("/users/show.json?user_a=#{user}")
+  	case response
+  	when Net::HTTPSuccess
+  		return JSON.parse(response.body)
+  	else
+  		raise TwitterOauth::APIError
+  	end
+  rescue => err
+  	puts "Exception in user_show: #{err}"
+  	raise err
+  end
+	
 	
 	# Twitter REST API Method: friendships create
 	def follow!(new_friend)

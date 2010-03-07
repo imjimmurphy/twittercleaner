@@ -29,6 +29,12 @@
 <% end -%>
 
 <div id="menu">
+<%= link_to_remote "Who should I Unfollow?",
+   :url => partialunfollow_recommendation_member_path(@member),
+   :method => :get,
+   :loading => "$('error').innerHTML = '';$('data').innerHTML = 'Loading..';",
+   :update => { :success => "data", :failure => "error" }
+%> |
 <%= link_to_remote "Show friends",
    :url => partialfriends_member_path(@member),
    :method => :get,

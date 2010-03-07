@@ -57,6 +57,17 @@ class MembersController < ApplicationController
 			member_path(@member)
 		end
 	end
+                 
+	def partialunfollow_recommendation
+		if (request.xhr?)
+			@friends = self.friends()
+			render :partial => 'members/friend', :collection => @friends, :layout => false
+		else
+			flash[:error] = 'method only supporting XmlHttpRequest'
+			member_path(@member)
+		end
+	end
+
 
 	def partialmentions
 		if (request.xhr?)

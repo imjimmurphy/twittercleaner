@@ -5,7 +5,8 @@ ActionController::Routing::Routes.draw do |map|
 		:collection => { :callback => :get },
 		:member => { 
 			:update_status => :post, 
-			:partialfriends => :get, 
+			:partialfriends => :get,    
+			:partialunfollow_recommendation -> :get,
 			:partialfollowers => :get, 
 			:partialmentions => :get , 
 			:partialdms => :get    
