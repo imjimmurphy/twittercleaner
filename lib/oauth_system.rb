@@ -46,9 +46,12 @@ module OauthSystem
 		# Redirect to the show page
 		redirect_to member_path(@member)
 		
-	rescue
+	rescue Exception => e
 		# The user might have rejected this application. Or there was some other error during the request.
 		RAILS_DEFAULT_LOGGER.error "Failed to get user info via OAuth"
+		RAILS_DEFAULT_LOGGER.error "e.message"
+		RAILS_DEFAULT_LOGGER.error e.to_s
+
 		flash[:error] = "Twitter API failure (account login)"
 		redirect_to root_url
 	end

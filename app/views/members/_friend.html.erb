@@ -1,12 +1,50 @@
 <hr/>
-<% style = "height:52px; width:52px; padding-left:52px;background: url(#{ h friend['profile_image_url']}) no-repeat;" %>
-<div style="<%= style %>">
+<div>
 <p>
-<%= h friend['screen_name']  %>, friends: <%= friend['friends_count'] %>, followers: <%= friend['followers_count'] %>
+<% style = "height:52px; width:52px; padding-left: 52px; background: url(#{ h friend['profile_image_url']}) no-repeat;" %>
+<div style="<%= style %>">
+<%= h friend['screen_name']  %>
+</div>
 </p>
+
 <% if friend['status'] %>
 <p>
 Latest update: <%= h friend['status']['text'] %>
 </p>
+<p>
+Last Updated: <%= friend['status']['created_at'] %>
+</p>
+<p>
+Last Updated Age: <%= (Time.new().to_i - Time.parse(friend['status']['created_at']).to_i) / 86400.0 %> days ago
+</p>
 <% end %>
+
+<p>
+Account Created: <%= h friend['created_at'] %>
+</p>
+<p>
+Account Age: <%= (Time.new().to_i - Time.parse(friend['created_at']).to_i) / 86400.0  %> days
+</p>
+<p>
+Bio: <%= h friend['description'] %>
+</p>
+<p>
+Tweets: <%= friend['statuses_count'] %>
+</p>
+<p>
+Friends: <%= friend['friends_count'] %>
+</p>
+<p>
+Followers: <%= friend['followers_count'] %>
+</p>
+<p>
+Url: <%= friend['url'] %>
+</p>
+<p>
+Location: <%= friend['location'] %>
+</p>
 </div>
+
+<%= puts friend %>
+
+

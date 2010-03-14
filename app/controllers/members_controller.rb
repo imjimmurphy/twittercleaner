@@ -57,10 +57,19 @@ class MembersController < ApplicationController
 			member_path(@member)
 		end
 	end
+
+
+	def recommend(friends)
+		friends.sort do |x,y| 
+			ux = TwitterUser.new(x) 
+			uy = TwitterUser.new(y)
+			uy.account_age <=> x.account_age 
+		end
+	end
                  
 	def partialunfollow_recommendation
 		if (request.xhr?)
-			@friends = self.friends()
+			@friends = recommend(self.friends())
 			render :partial => 'members/friend', :collection => @friends, :layout => false
 		else
 			flash[:error] = 'method only supporting XmlHttpRequest'
